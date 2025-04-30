@@ -7,7 +7,7 @@
       <nav class="header__nav">
         <ul class="header__nav__list">
           <li class="header__nav__list-item"><a href="#">Главная</a></li>
-          <li class="header__nav__list-item"><a href="#">О компании</a></li>
+          <li class="header__nav__list-item"><a href="#">{{abaoutCompany}}</a></li>
           <li class="header__nav__list-item"><a href="#">Каталог</a></li>
         </ul>
       </nav>
@@ -29,18 +29,19 @@
 </div>
 
 <div class="header__bottom">
+  <button (click)="changeMenutext()">change text</button>
   <div class="header__wrapper-btm">
     <div class="header-left--btm">
       <nav class="header__bottom-nav">
         <ul class="header__bottom-nav--list">
           <li class="header__bottom-nav--list---item">
             <a href="#" class="item-img"><img src="../assets/light.svg" alt="catalog"></a>
-            <button href="#" class="item-link">Каталог</button>
+            <button href="#" class="item-link" *ngFor="let item of menuItems">{{item}}</button>
           </li>
-          <li class="header__bottom-nav--list---item"><button href="#" class="item-link">Стройматериалы</button></li>
+          <!-- <li class="header__bottom-nav--list---item"><button href="#" class="item-link">Стройматериалы</button></li>
           <li class="header__bottom-nav--list---item"><button href="#" class="item-link">Инструменты</button></li>
           <li class="header__bottom-nav--list---item"><button href="#" class="item-link">Электрика</button></li>
-          <li class="header__bottom-nav--list---item"><button href="#" class="item-link">Интерьер и одежда</button></li>
+          <li class="header__bottom-nav--list---item"><button href="#" class="item-link">Интерьер и одежда</button></li> -->
         </ul>
       </nav>
     </div>
@@ -55,7 +56,8 @@
 </div>
 
 <div class="header__img">
-  <img src="../assets/Rectangle 5.png" alt="image-large" class="header__img-img">
+  <button (click)="isShowImage = !isShowImage">Скрывать-показаывать картинку</button>
+  <img src="../assets/Rectangle 5.png" alt="image-large" class="header__img-img" *ngIf="isShowImage">
 </div>
 
 <div class="advantages">
@@ -81,11 +83,11 @@
 <div class="cards">
   <div class="cards__wrapper">
     <div class="cards__pagination">
-      <button class="cards__pagination-btn activ-button">1</button>
-      <button class="cards__pagination-btn">2</button>
-      <button class="cards__pagination-btn">3</button>
-      <button class="cards__pagination-btn">4</button>
-      <button class="cards__pagination-btn">5</button>
+      <button class="cards__pagination-btn" 
+      *ngFor="let item of newPages" 
+      [ngClass]="{'activ-button': item === 1}">
+      {{item}}
+    </button>
     </div>
     <div class="cards__items">
       <div class="cards__items-left">
@@ -238,7 +240,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> 
 
 <div class="toCatalog">
   <div class="toCatalog__wrapper">
