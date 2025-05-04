@@ -1,62 +1,8 @@
-<div class="header__top">
-  <div class="header__wrapper">
-    <div class="header-left">
-      <div class="logo">
-        <img src="../assets/Frame.svg" alt="logo">
-      </div>
-      <nav class="header__nav">
-        <ul class="header__nav__list">
-          <li class="header__nav__list-item"><a href="#">Главная</a></li>
-          <li class="header__nav__list-item"><a href="#">{{abaoutCompany}}</a></li>
-          <li class="header__nav__list-item"><a href="#">Каталог</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="header-right">
-      <div class="header__tel">
-        <img src="../assets/Phone.png" alt="tel" class="header__tel-img">
-        <a href="tel+79650842929" class="txt__tel">+7 (965) 084-29-29</a>
-      </div>
-      <a href="#" class="header__favorites">
-        <img src="../assets/Vector.svg" alt="favorites">
-      </a>
-      <div class="header__btn" onclick="click">
-        <img class="header__btn-img" src="../assets/Buying.png">
-        <p class="header__btn-text">Пусто</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="header__bottom">
-  <button (click)="changeMenutext()">change text</button>
-  <div class="header__wrapper-btm">
-    <div class="header-left--btm">
-      <nav class="header__bottom-nav">
-        <ul class="header__bottom-nav--list">
-          <li class="header__bottom-nav--list---item">
-            <a href="#" class="item-img"><img src="../assets/light.svg" alt="catalog"></a>
-            <button href="#" class="item-link" *ngFor="let item of menuItems">{{item}}</button>
-          </li>
-          <!-- <li class="header__bottom-nav--list---item"><button href="#" class="item-link">Стройматериалы</button></li>
-          <li class="header__bottom-nav--list---item"><button href="#" class="item-link">Инструменты</button></li>
-          <li class="header__bottom-nav--list---item"><button href="#" class="item-link">Электрика</button></li>
-          <li class="header__bottom-nav--list---item"><button href="#" class="item-link">Интерьер и одежда</button></li> -->
-        </ul>
-      </nav>
-    </div>
-    <div class="header-right--btm">
-      <input type="search" placeholder="Поиск, например Круг зачистной" class="header__input">
-      <div class="header-location">
-        <img src="../assets/map-pin (2) 1.svg" alt="location" class="location__img">
-        <p class="location__txt">Москва</p>
-      </div>
-    </div>
-  </div>
-</div>
+<app-header></app-header>
 
 <div class="header__img">
   <button (click)="isShowImage = !isShowImage">Скрывать-показаывать картинку</button>
+
   <img src="../assets/Rectangle 5.png" alt="image-large" class="header__img-img" *ngIf="isShowImage">
 </div>
 
@@ -79,15 +25,13 @@
     </div>
   </div>
 </div>
-
+<router-outlet></router-outlet>
 <div class="cards">
   <div class="cards__wrapper">
     <div class="cards__pagination">
-      <button class="cards__pagination-btn" 
-      *ngFor="let item of newPages" 
-      [ngClass]="{'activ-button': item === 1}">
-      {{item}}
-    </button>
+      <button class="cards__pagination-btn" *ngFor="let item of newPages" [ngClass]="{'active-button': item === 1}">
+        {{item}}
+      </button>
     </div>
     <div class="cards__items">
       <div class="cards__items-left">
@@ -131,6 +75,7 @@
         </div>
       </div>
     </div>
+>
   </div>
 </div>
 
@@ -239,8 +184,9 @@
         </div>
       </div>
     </div>
+    
   </div>
-</div> 
+</div>
 
 <div class="toCatalog">
   <div class="toCatalog__wrapper">
@@ -363,6 +309,8 @@
   </div>
 </div>
 
+
+
 <footer class="footer">
   <div class="footer__wrapper">
 
@@ -373,22 +321,23 @@
           <img src="../assets/call-calling.svg" alt="call" class="footer__left-contacts__txt-img">
           <p class="footer__left-contacts__txt-title">Контактный телефон</p>
         </div>
-          <p class="footer__left-contacts__num">+ 7 (812) 309-09-34</p>
-          <p class="footer__left-contacts__num">+ 7 (965) 084-29-09</p>
+        <p class="footer__left-contacts__num">+ 7 (812) 309-09-34</p>
+        <p class="footer__left-contacts__num">+ 7 (965) 084-29-09</p>
       </div>
       <div class="footer__left-email">
         <div class="footer__left-email__txt">
           <img src="../assets/sms.svg" alt="email" class="footer__left-email__txt-img">
           <p class="footer__left-email__txt-title">Электронная почта</p>
         </div>
-          <p class="footer__left-email__post">tustin78&#64;mail.ru</p>
-          <p class="footer__left-email__post">info&#64;tustin.ru</p>
+        <p class="footer__left-email__post">tustin78&#64;mail.ru</p>
+        <p class="footer__left-email__post">info&#64;tustin.ru</p>
       </div>
     </div>
 
     <div class="footer__right">
       <h1 class="footer__right-title">Остались вопросы?</h1>
-      <p class="footer__right-txt">Узнавайте первым о скидках, предложениях и событиях еженедельно в <br>своем почтовом ящике. Отпишитесь в любое время одним щелчком мыши.</p>
+      <p class="footer__right-txt">Узнавайте первым о скидках, предложениях и событиях еженедельно в <br>своем почтовом
+        ящике. Отпишитесь в любое время одним щелчком мыши.</p>
       <div class="footer__right-form">
         <input type="email" placeholder="Введите свою почту" class="footer__right-form__input">
         <input type="submit" value="Отправить" class="footer__right-form__btn">
