@@ -25,7 +25,7 @@ const upperCaseMenuItems = menuItems.map((item) => {
   imports: [NgFor, RouterLink]
 })
 export class HeaderComponent {
-  readonly abaoutCompany = aboutCompany;
+  readonly aboutCompany = aboutCompany;
 
   readonly header2Item1 = upperCaseMenuItems[0];
 
