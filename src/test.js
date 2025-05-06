@@ -246,21 +246,17 @@ const data = [
   const task5 = data.slice(0, 5);
   console.log({ task5 });
   
+  const task6 = data.reverse();
+  console.log({ task6 }); 
+
   const task7 = data.length;
   console.log({ task7 });
   
-  const task8 = data
-    .reduce(
-      (acc, curr) => [...acc, curr.website.includes(".com") ? curr : null],
-      []
-    )
-    .filter((el) => Boolean(el));
-  console.log({ task8 });
+  const task8 = data.map((el) => el.website).filter((el) => el.includes(".com"));
+  console.log({ task8 }); 
   
-  const task9 = data
-    .reduce((acc, curr) => [...acc, curr.username.length > 12 ? curr : null], [])
-    .filter((el) => Boolean(el));
-  console.log({ task9 });
+  const task9 = data.map((el) => el.username).filter((el) => el.length > 12);
+  console.log({ task9 }); 
   
   const task10 = data.reduce((acc, curr) => [
     ...acc,
