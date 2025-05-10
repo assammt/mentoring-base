@@ -265,3 +265,16 @@ const data = [
   );
   console.log({ task10 });
   
+// НАКОНЕЦ-ТО ПОНЯЛ КАК РАБОТАЕТ REDUCE!!!
+
+  // [] bret => [bret]
+  // [bret] antonette => [bret, antonette] 
+  // [bret, antonette] samantha => [bret, antonette, samantha]
+  // [bret, antonette, samantha] karianne => [bret, antonette, samantha, karianne]          
+  // [bret, antonette, samantha, karianne] kamren => [bret, antonette, samantha, karianne, kamren]    
+  // [bret, antonette, samantha, karianne, kamren] leopoldo_corkery => [bret, antonette, samantha, karianne, kamren, leopoldo_corkery]                 
+  // [bret, antonette, samantha, karianne, kamren, leopoldo_corkery] elwyn.skiles => [bret, antonette, samantha, karianne, kamren, leopoldo_corkery, elwyn.skiles]        
+  // [bret, antonette, samantha, karianne, kamren, leopoldo_corkery, elwyn.skiles] maxime_nienow => [bret, antonette, samantha, karianne, kamren, leopoldo_corkery, elwyn.skiles, maxime_nienow]    
+  // [bret, antonette, samantha, karianne, kamren, leopoldo_corkery, elwyn.skiles, maxime_nienow] delphine => [bret, antonette, samantha, karianne, kamren, leopoldo_corkery, elwyn.skiles, maxime_nienow, delphine]
+  // [bret, antonette, samantha, karianne, kamren, leopoldo_corkery, elwyn.skiles, maxime_nienow, delphine] moriah.stanton => [bret, antonette, samantha, karianne, kamren, leopoldo_corkery, elwyn.skiles, maxime_nienow, delphine, moriah.stanton]    
+            

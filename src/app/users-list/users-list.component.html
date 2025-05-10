@@ -1,11 +1,5 @@
-
 <div class="users__container">
-    <div class="user__card" *ngFor="let item of users">
-        <p>{{$any(item).name}}</p>
-        <p>{{$any(item).email}}</p>
-        <p>{{$any(item).website}}</p>
-        <p>{{$any(item).company.name}}</p>
-
-        <button (click)="deletUser(item.id)">DELETE USER</button>
+    <div *ngFor="let user of users">
+        <app-user-card [user]='user' (deleteUser)='deleteUser($event)'></app-user-card>
     </div>
 </div>
