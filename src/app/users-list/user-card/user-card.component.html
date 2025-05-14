@@ -1,7 +1,7 @@
 <div class="user__card">
-    <p>{{$any(user).name}}</p>
-    <p>{{$any(user).email}}</p>
-    <p>{{$any(user).website}}</p>
-    <p>{{$any(user).company.name}}</p>
-    <button (click)="onDeleteUser(user.id)">DELETE USER</button>
+    <p class="txt">{{$any(user).name}}</p>
+    <p class="txt">{{$any(user).email}}</p>
+    <p class="txt">{{$any(user).website}}</p>
+    <p class="txt">{{$any(user).company.name}}</p>
+    <button (click)="onDeleteUser(user)" class="btn">DELETE USER</button>
 </div>
