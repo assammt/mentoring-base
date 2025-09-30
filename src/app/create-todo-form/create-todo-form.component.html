@@ -1,31 +1,35 @@
 <h1>CREATE TODO FORM</h1>
 
 <form class="form" [formGroup]="form" (ngSubmit)="submitForm()">
-    <p>ТЕКСТ ЗАДАЧИ</p>
-    <input type="text" name="title" placeholder="Введите текст задачи" required class="input" formControlName="title">
-    <div *ngIf="form.get('title')?.invalid && form.get('title')?.touched" class="error">
-        <div *ngIf="form.get('title')?.errors?.['required']">
-            Title is required.
-        </div>
-        <div *ngIf="form.get('title')?.errors?.['minlength']">
-            Title must be at least 3 characters long.
-        </div>
-    </div>
+    <mat-form-field>
+        <mat-label>ТЕКСТ ЗАДАЧИ</mat-label>
+        <input matInput name="title" placeholder="Введите текст задачи" required class="input"
+            formControlName="title" />
+        <mat-error *ngIf="form.get('title')?.invalid && form.get('title')?.touched" class="error">
+            <div *ngIf="form.get('title')?.errors?.['required']">
+                Текст задачи обязателен.
+            </div>
+            <div *ngIf="form.get('title')?.errors?.['minlength']">
+                Текст задачи должен содержать не менее 3 символов.
+            </div>
+        </mat-error>
+    </mat-form-field>
 
-    <p>АВТОР ЗАДАЧИ</p>
-    <input type="number" name="userId" placeholder="Введите id автора" required class="input" formControlName="userId">
-    <div *ngIf="form.get('userId')?.invalid && form.get('userId')?.touched" class="error">
-        <div *ngIf="form.get('userId')?.errors?.['required']">
-            User ID is required.
-        </div>
-        <div *ngIf="form.get('userId')?.errors?.['min']">
-            User ID must be a positive number.
-        </div>
-    </div>
+    <mat-form-field class="mat-form-field">
+        <mat-label>АВТОР ЗАДАЧИ</mat-label>
+        <input matInput type="number" name="userId" placeholder="Введите id автора" required class="input"
+            formControlName="userId" />
+        <mat-error *ngIf="form.get('userId')?.invalid && form.get('userId')?.touched" class="error">
+            <div *ngIf="form.get('userId')?.errors?.['required']">
+                ID автора обязателен.
+            </div>
+            <div *ngIf="form.get('userId')?.errors?.['min']">
+                ID автора должен быть положительным числом.
+            </div>
+        </mat-error>
+    </mat-form-field>
 
-    <p>ЗАДАЧА ЗАВЕРШЕНА</p>
-    <input type="checkbox" name="completed" class="checkbox" formControlName="completed">
+    <mat-checkbox name="completed" class="checkbox" formControlName="completed">ЗАДАЧА ЗАВЕРШЕНА</mat-checkbox>
 
-    <button class="btn" [disabled]="form.invalid">CREATE TODO</button>
-
+    <button mat-raised-button color="primary" class="btn" [disabled]="form.invalid">Создать задачу</button>
 </form>

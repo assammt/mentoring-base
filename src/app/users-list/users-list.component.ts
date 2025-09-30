@@ -48,13 +48,15 @@ export class UsersListComponent {
 
     public createUser(formData: any): void {
         this.usersService.createUser({
+          user: {
             id: new Date().getTime(),
             name: formData.name,
             email: formData.email,
             website: formData.website,
             company: {
-                name: formData.company_name
+              name: formData.company_name
             }
+          }
         });
         console.log('dates of form: ', formData);
     }

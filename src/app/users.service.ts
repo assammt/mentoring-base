@@ -23,11 +23,11 @@ export class UsersService {
   }
 
   createUser(user: User) {
-    const userIsExisting = this.usersSubject$.value.find(
-      (item) => item.email === user.email
+    const userIsExisting: User | undefined = this.usersSubject$.value.find(
+      (item: User) => item.email === user.email
     );
 
-    if (userIsExisting !== undefined) {
+    if (userIsExisting) {
       alert('User with this email is already existing');
     } else {
       this.usersSubject$.next([...this.usersSubject$.value, user]);
