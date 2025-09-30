@@ -5,6 +5,7 @@ import { UsersApiService } from "../users-api.service";
 import { UserCardComponent } from "./user-card/user-card.component";
 import { UsersService } from "../users.service";
 import { User } from "../interfaces/users.interface";
+import { CreateUserFormComponent } from "../create-user-form/create-user-form.component";
 
 
 
@@ -15,7 +16,7 @@ import { User } from "../interfaces/users.interface";
     templateUrl: './users-list.component.html',
     styleUrl: './users-list.component.scss',
     standalone: true,
-    imports: [NgFor, RouterLink, RouterOutlet, UserCardComponent, AsyncPipe],
+    imports: [NgFor, RouterLink, RouterOutlet, UserCardComponent, AsyncPipe, CreateUserFormComponent],
     changeDetection: ChangeDetectionStrategy.OnPush 
 })
 export class UsersListComponent {
@@ -31,6 +32,10 @@ export class UsersListComponent {
             }
         )
 
+        this.usersService.users$.subscribe(
+            users => console.log( users)
+        )
+
     }
 
     deleteUser(id: number) {
@@ -41,8 +46,17 @@ export class UsersListComponent {
         this.usersService.editUser(editedUser);
     }
 
-    createUser(user: User) {
-        this.usersService.createUser(user);
+    public createUser(formData: any): void {
+        this.usersService.createUser({
+            id: new Date().getTime(),
+            name: formData.name,
+            email: formData.email,
+            website: formData.website,
+            company: {
+                name: formData.company_name
+            }
+        });
+        console.log('dates of form: ', formData);
     }
 
 }   

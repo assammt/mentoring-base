@@ -4,13 +4,14 @@ import { TodoCardComponent } from './todo-card/todo-card.component';
 import { AsyncPipe, NgFor } from '@angular/common';
 import { TodosService } from '../todos.service';
 import { Todo } from '../interfaces/todos.interface';
+import { CreateTodoFormComponent } from "../create-todo-form/create-todo-form.component";
 
 @Component({
   selector: 'app-todos-list',
   templateUrl: './todos-list.component.html',
   styleUrl: './todos-list.component.scss',
   standalone: true,
-  imports: [TodoCardComponent, NgFor, AsyncPipe],
+  imports: [TodoCardComponent, NgFor, AsyncPipe, CreateTodoFormComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodosListComponent {

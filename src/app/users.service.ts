@@ -4,8 +4,8 @@ import { User } from './users-list/users-list.component';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
-private usersSubject$ = new BehaviorSubject<User[]>([]);
-users$ = this.usersSubject$.asObservable();
+  private usersSubject$ = new BehaviorSubject<User[]>([]);
+  users$ = this.usersSubject$.asObservable();
 
   setUsers(users: User[]) {
     this.usersSubject$.next(users);
@@ -23,7 +23,16 @@ users$ = this.usersSubject$.asObservable();
   }
 
   createUser(user: User) {
-    this.usersSubject$.next([...this.usersSubject$.value, user]);
+    const userIsExisting = this.usersSubject$.value.find(
+      (item) => item.email === user.email
+    );
+
+    if (userIsExisting !== undefined) {
+      alert('User with this email is already existing');
+    } else {
+      this.usersSubject$.next([...this.usersSubject$.value, user]);
+      alert('User created successfully');
+    }
   }
 
   deleteUser(id: number) {

@@ -1,9 +1,9 @@
 export interface User {
     id : number;
     name: string;
-    userName: string;
+    userName?: string;
     email: string;
-    addres: {
+    addres?: {
         street: string;
         suite: string;
         city: string;
@@ -13,11 +13,11 @@ export interface User {
             lng: string;
         };
     };
-    phone: string;
+    phone?: string;
     website: string;
     company: {
         name: string;
-        catchPhrase: string;
-        bs: string;
+        catchPhrase?: string;
+        bs?: string;
     };
 }

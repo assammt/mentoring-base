@@ -1,0 +1,31 @@
+<h1>CREATE TODO FORM</h1>
+
+<form class="form" [formGroup]="form" (ngSubmit)="submitForm()">
+    <p>ТЕКСТ ЗАДАЧИ</p>
+    <input type="text" name="title" placeholder="Введите текст задачи" required class="input" formControlName="title">
+    <div *ngIf="form.get('title')?.invalid && form.get('title')?.touched" class="error">
+        <div *ngIf="form.get('title')?.errors?.['required']">
+            Title is required.
+        </div>
+        <div *ngIf="form.get('title')?.errors?.['minlength']">
+            Title must be at least 3 characters long.
+        </div>
+    </div>
+
+    <p>АВТОР ЗАДАЧИ</p>
+    <input type="number" name="userId" placeholder="Введите id автора" required class="input" formControlName="userId">
+    <div *ngIf="form.get('userId')?.invalid && form.get('userId')?.touched" class="error">
+        <div *ngIf="form.get('userId')?.errors?.['required']">
+            User ID is required.
+        </div>
+        <div *ngIf="form.get('userId')?.errors?.['min']">
+            User ID must be a positive number.
+        </div>
+    </div>
+
+    <p>ЗАДАЧА ЗАВЕРШЕНА</p>
+    <input type="checkbox" name="completed" class="checkbox" formControlName="completed">
+
+    <button class="btn" [disabled]="form.invalid">CREATE TODO</button>
+
+</form>

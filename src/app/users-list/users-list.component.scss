@@ -1,6 +1,10 @@
-.users__container {
+.wrapper {
   width: 1440px;
   margin: 0 auto;
+}
+
+.users__container {
+
   display: flex;
   flex-wrap: wrap;
   margin-top: 40px;

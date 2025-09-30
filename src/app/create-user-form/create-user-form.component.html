@@ -1,0 +1,54 @@
+<h1>CREATE USER FORM</h1>
+
+<form class="form" [formGroup]="form" (ngSubmit)="submitForm()">
+    <p>Name</p>
+    <input type="text" name="name" placeholder="Enter your name" required class="
+    input" formControlName="name">
+    <div class="error"
+        *ngIf="form.controls['name']?.invalid && (form.controls['name']?.dirty || form.controls['name']?.touched)">
+        <div *ngIf="form.controls['name']?.errors?.['required']">
+            Name is required.
+        </div>
+        <div *ngIf="form.controls['name']?.errors?.['minlength']">
+            Name must be at least 3 characters long.
+        </div>
+    </div>
+    <p>Email</p>
+    <input type="text" name="email" placeholder="Enter your email" required class="
+    input" formControlName="email">
+    <div class="error"
+        *ngIf="form.controls['email']?.invalid && (form.controls['email']?.dirty || form.controls['email']?.touched)">
+        <div *ngIf="form.controls['email']?.errors?.['required']">
+            Email is required.
+        </div>
+        <div *ngIf="form.controls['email']?.errors?.['email']">
+            Email must be a valid email address.
+        </div>
+    </div>
+    <p>Website</p>
+    <input type="text" name="website" placeholder="Enter your website" required class="
+    input" formControlName="website">
+    <div class="error"
+        *ngIf="form.controls['website']?.invalid && (form.controls['website']?.dirty || form.controls['website']?.touched)">
+        <div *ngIf="form.controls['website']?.errors?.['required']">
+            Website is required.
+        </div>
+        <div *ngIf="form.controls['website']?.errors?.['minlength']">
+            Website must be at least 3 characters long.
+        </div>
+    </div>
+    <p>Company name</p>
+    <input type="text" name="company_name" placeholder="Enter your company name" required class="
+    input" formControlName="company_name">
+    <div class="error"
+        *ngIf="form.controls['company_name']?.invalid && (form.controls['company_name']?.dirty || form.controls['company_name']?.touched)">
+        <div *ngIf="form.controls['company_name']?.errors?.['required']">
+            Company name is required.
+        </div>
+        <div *ngIf="form.controls['company_name']?.errors?.['minlength']">
+            Company name must be at least 3 characters long.
+        </div>
+    </div>
+    <button class="btn" [disabled]="form.invalid">CREATE USER</button>
+
+</form>
